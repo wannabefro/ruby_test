@@ -1,0 +1,10 @@
+<h1>Hi!</h1>
+{{#if session.isAuthenticated}}
+  <p>{{currentUser.username}}</p>
+  {{#link-to 'questions.index'}}Questions{{/link-to}}
+  {{#link-to 'editor'}}Editor{{/link-to}}
+  <a {{ action 'invalidateSession' }}>Logout</a>
+  {{outlet}}
+{{else}}
+  {{render 'login'}}
+{{/if}}

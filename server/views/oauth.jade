@@ -1,0 +1,11 @@
+html
+  head
+  body
+    script(type='text/javascript').
+      if (typeof(success) !== undefined){
+        window.opener.App.ExternalConnector.trigger('externalAuthenticationSucceeded',{access_token: !{JSON.stringify(access_token)}, user: !{JSON.stringify(user)}})
+      } else {
+        window.opener.App.ExternalConnector.trigger('externalAuthenticationFailed', 'access not granted!');
+      }
+      window.close()
+
